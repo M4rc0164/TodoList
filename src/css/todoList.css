@@ -1,0 +1,69 @@
+body {
+  background-color: #5771d9;
+  font-family: "Noto Sans";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor {
+  border: 1px solid red;
+  display: grid;
+  grid-template-rows: 1fr 1fr 2fr;
+  width: 50%;
+  justify-content: center;
+  background-color: #f2f7f4;
+  margin-top: 100px;
+}
+
+.contenedor .titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #040205;
+  font-size: 30px;
+}
+
+.contenedor .addTasks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor .addTasks .addTasksTextInput {
+  font-family: "Noto Sans";
+  border-radius: 5px;
+}
+
+.contenedor .addTasks .addButton {
+  background-color: #50d977;
+  color: #040205;
+  font-family: "Noto Sans";
+  font-weight: bold;
+}
+
+.contenedor .tasks {
+  color: #040205;
+}
+
+ul {
+  list-style: none;
+}
+
+.contenedor .tasks .editButton {
+  color: #040205;
+  font-family: "Noto Sans";
+  font-weight: bold;
+  background-color: #5771d9;
+}
+
+.contenedor .tasks .deleteButton {
+  color: #040205;
+  font-family: "Noto Sans";
+  font-weight: bold;
+  background-color: #d92114;
+}
+ 

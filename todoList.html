@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es-Mx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="src/css/todoList.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="contenedor">
+        <section class="titulo">
+            <h1>Todo List</h1>
+        </section>
+        <section class="addTasks">
+            <input id="addTasksTextInput" class="addTasksTextInput" type="text" size="80" multiple
+                placeholder="Escribe aquí tu próxima tarea" required name="newTask">
+            <input id="addButton" class="addButton" type="button" value="+" onclick="addButton()">
+        </section>
+        <section class="tasks">
+            <ul id="tasksList" class="listado">
+
+            </ul>
+        </section>
+    </main>
+
+
+    <script src="todoList.js"></script>
+</body>
+
+</html>
