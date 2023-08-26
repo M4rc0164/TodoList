@@ -24,18 +24,12 @@ function loadTasks() {
 }
 
 function deleteButton(id, text) {
-    console.log('ya entró', id, text)
-    delete (tasks[id])
-    loadTasks()
-    const element = tasksList.getElementById(".items")
-    element.forEach((elem) => {
-        console.log(elem)
-    });
-    const item = element.getElementById(`#item-${id}`)
-    console.log(item)
-    element.removeChild(item)
+    delete tasks[id];
+    const element = tasksList.querySelector(`#item-${id}`);
+    tasksList.removeChild(element);
 }
 
 function editButton() {
 
 }
+
