@@ -82,14 +82,25 @@ function guardarTarea(id) {
   console.log(checkbox.checked)
 } */
 
-const checkboxes = document.querySelectorAll(`checkboxes-1`)
-checkboxes.forEach((element, index) => {
-  element.addEventListener('change', () => {
-    const isChecked = element.checked
-    console.log(isChecked)
+/**
+ *
+ * @description Funcion agrega un marcador al textop cuando la tarea esta terminada
+ * @param id:number
+ */
+function checkTarea(id) {
+  const checkbox = document.getElementById(`marcador-${id}`);
+  const idTarea = document.getElementById(`tareaCheck-${id}`)
+  const llave = get()
+  llave[id].check = checkbox.checked
+  if (checkbox.checked) {
+    idTarea.style = "text-decoration: line-through"
+  } else {
+    idTarea.style = "text-decoration: none"
   }
-  )
-});
+
+  set(llave)
+
+}
 
 
 
