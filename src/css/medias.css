@@ -1,2 +1,36 @@
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1300px) {
+  section {
+  }
+}
+@media screen and (max-width: 1200px) {
+  section {
+  }
+}
+@media screen and (max-width: 1024px) {
+  section {
+  }
+}
+@media screen and (max-width: 968px) {
+  section {
+  }
+}
+@media screen and (max-width: 768px) {
+  section {
+  }
+  .contenedorPrincipal {
+    grid-template-columns: 1fr;
+  }
+  .contenedor, .contenedorResumen {
+    width: 100%;
+    padding: 12px;
+    height: 100%;
+  }
+  .contenedor .addTasks {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 421px) {
+  section {
+  }
 }

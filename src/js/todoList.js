@@ -3,18 +3,20 @@
  */
 
 function agregar() {
-  console.log("entrando")
   // No agregar elementos vacíos
-  if (inputText.value === "") {
+  if (inputText.value === "" || datepicker.value === "") {
     //retorna si está vacío
+
     return;
   }
   const items = get()
   //insertamos un objeto con el valor  en el array con 'push'
-  items.push({ texto: inputText.value.trim() })// usamos método TRIM  para eliminar espacios adelante y atrás
+  items.push({ texto: inputText.value.trim(), fecha: datepicker.value.trim() })// usamos método TRIM  para eliminar espacios adelante y atrás
   set(items)
-  inputText.value = ""; //limpiamos el input 
-  loadTasks();//cargamos loadTask para imprimir de nuevo 
+  inputText.value = ""; //limpiamos el input
+  datepicker.value = "";
+  loadTasks();//cargamos loadTask para imprimir de nuevo
+  barraTareas()
 }
 
 /**
@@ -31,6 +33,7 @@ function borrarLista(id) {
   set(parametro)
   // obtenemos el id del listado <li></li>
   const element = document.getElementById(`item-${id}`);
+
 
   // si existe el elemento los removemos del DOM
   if (element) {
@@ -52,12 +55,12 @@ function editarTarea(id, texto) {
   //se le pasa el id del td con la tarea(texto)
   const td = document.getElementById(`editarTexto-${id}`)
   //Se cambia el td por un input usando innerHTML
-  td.innerHTML = `<input id="tareaInput-${id}" type="text" value="${texto}">`
+  td.innerHTML = `<input class="inputSave textoTarea" id="tareaInput-${id}" type="text" value="${texto}">`
 
   //Transformar Botón a guardar
   const tdBt = document.getElementById(`editarBoton-${[id]}`) //Se le pasa el id del td con el botón
   //Se cambia el botón editar por guardar usando innerHTML
-  tdBt.innerHTML = `<input type="button" value="Guardar" onclick="guardarTarea(${id})">`
+  tdBt.innerHTML = `<input class="saveButton" type="button" value="Guardar" onclick="guardarTarea(${id})">`
 }
 
 /**
@@ -70,7 +73,7 @@ function guardarTarea(id) {
   const tdBt = document.getElementById(`editarBoton-${[id]}`)
   const td = document.getElementById(`editarTexto-${id}`)
   const obtener = get()
-  obtener[id].texto = tareaInput.value
+  obtener[id].texto = tareaInput.value.toUpperCase()
   set(obtener)
   tdBt.innerHTML = `<input class="editButton" type="button" value="Editar" onclick="editarTarea(${[id]}, '${obtener[id].texto}')"></input>`
   td.innerHTML = `<span>${obtener[id].texto}</span>`
@@ -99,7 +102,51 @@ function checkTarea(id) {
   }
 
   set(llave)
+  loadTasks()
+  barraTareas()
+}
 
+function totalTasks() {
+  const tareas = get()
+  let numeroDeTareas;
+  if (tareas.length > 0) {
+    for (let i = 0; i < tareas.length; i++) {
+      numeroDeTareas = `<td>${[tareas.length]}</td>`;
+      numTareas.innerHTML = numeroDeTareas
+    }
+  } else {
+    numTareas.innerHTML = `<td>0</td>`
+  }
+}
+
+function checkTasks() {
+  const tareas = get()
+  let checkTareas;
+  let suma = 0
+  if (tareas.length > 0) {
+    for (let i = 0; i < tareas.length; i++) {
+      if (tareas[i].check) {
+        suma += 1
+      }
+    }
+    checkTareas = `<td>${[suma]}</td>`;
+    tareasChecked.innerHTML = checkTareas
+  } else {
+    tareasChecked.innerHTML = `<td>${[suma]}</td>`
+  }
+}
+
+function barraTareas() {
+  const array = get()
+  let suma = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].check) {
+      suma += 1
+    }
+    
+  }
+  console.log(suma)
+  barra.innerHTML = `<progress id="file" value="${suma}" max="${array.length}"></progress>`
 }
 
 

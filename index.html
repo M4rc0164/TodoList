@@ -5,36 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="src/js/lib/jquery-ui.theme.css">
+    <link rel="stylesheet" href="src/js/lib/jquery-ui.css">
     <link rel="stylesheet" href="src/css/todoList.css">
+    <link rel="stylesheet" href="src/css/medias.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;1,400&display=swap"
         rel="stylesheet">
+
 </head>
 
 <body>
-
-    <main class="contenedor">
-        <section class="titulo">
-            <h1>Todo List</h1>
-        </section>
-        <section class="addTasks">
-            <form>
-                <input id="addTasksTextInput" class="addTasksTextInput" type="text" size="80"
-                    placeholder="Escribe aquí tu próxima tarea" required name="newTask">
-                <input class="addButton" type="submit" value="+" onclick="agregar()">
-                
-            </form>
-        </section>
-        <section class="tasks">
-            <table border="1" width="100%">
-                <tbody id="tasksList" class="listado"></tbody>
+    <main class="contenedorPrincipal">
+        <div class="contenedor">
+            <section class="titulo">
+                <h1>Todo List</h1>
+            </section>
+            <section>
+                <form>
+                    <div class="addTasks">
+                        <input id="addTasksTextInput" class="addTasksTextInput" type="text"
+                            placeholder="Escribe aquí tu próxima tarea" required name="newTask">
+                        <input type="text" id="datepicker" placeholder="Asigna una fecha límite" required>
+                    </div>
+                    <input class="addButton" type="submit" value="agregar tarea" onclick="agregar()">
+                </form>
+            </section>
+            <section class="tasks">
+                <table border="0" width="100%">
+                    <tr id="cabecera"></tr>
+                    <tbody id="tasksList" class="listado"></tbody>
+                </table>
+            </section>
+        </div>
+        <div class="contenedorResumen">
+            <h3>Resumen</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Número de tareas</td>
+                        <td id="numTareas"></td>
+                    </tr>
+                    <tr>
+                        <td>Tareas terminadas</td>
+                        <td id="tareasCheck"></td>
+                    </tr>
+                    <tr>
+                        <label for="file">Progreso de tareas</label>
+                        <br>
+                        <span id="barra"></span>
+                    </tr>
+                </tbody>
             </table>
-        </section>
+        </div>
     </main>
 
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="src/js/lib/jquery-ui.js"></script>
     <script src="src/js/storage.js"></script>
     <script src="src/js/todoList.js"></script>
     <script src="src/js/main.js"></script>
+    <script>
+        $(function () {
+            $('#datepicker').datepicker({
+                onSelect: function () {
+                    let value = $(this).datepicker('getDate')
+                    console.log(value)
+                }
+            });
+        });</script>
+
 </body>
 
 </html>

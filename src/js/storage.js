@@ -11,3 +11,5 @@ function get() {
 function set(items) {
     localStorage.setItem("LLAVE", JSON.stringify(items)); 
 }
+
+

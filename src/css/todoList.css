@@ -1,20 +1,31 @@
 body {
   background-color: #5771d9;
   font-family: "Noto Sans";
-  display: flex;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.contenedorPrincipal {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   justify-content: center;
 }
 
 .contenedor {
-  border: 1px solid red;
-  display: grid;
-  grid-template-rows: 1fr 1fr 2fr;
-  width: 50%;
-  justify-content: center;
+  width: 90%;
+  padding: 24px;
   background-color: #f2f7f4;
-  margin-top: 100px;
+  height: 90vh;
+}
+.contenedorResumen {
+  width: 90%;
+  padding: 24px;
+  background-color: #f2f7f4;
+  height: 90vh;
 }
 
 .contenedor .titulo {
@@ -27,54 +38,110 @@ body {
 }
 
 .contenedor .addTasks {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .contenedor .addTasks .addTasksTextInput {
-  font-family: "Noto Sans";
   border-radius: 5px;
+  width: 100%;
+  padding: 12px 0px 12px 0px;
+  border-color: purple;
 }
 
-.contenedor .addTasks .addButton {
+.contenedor .addButton {
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px;
   background-color: #50d977;
-  color: #040205;
-  font-family: "Noto Sans";
+  color: #ffffff;
   font-weight: bold;
-  padding: 8px 12px;
+  font-size: 18px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.contenedor .tasks {
+.contenedor .addTasks .addButton:hover {
+  background-color: #297c40;
+}
+
+.tasks {
   color: #040205;
+  margin-top: 20px;
 }
 
-.listado li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-ul {
-  list-style: none;
+.listado {
+  border: none;
 }
 
 .contenedor .tasks .editButton {
-  color: #040205;
-  font-family: "Noto Sans";
-  font-weight: bold;
+  color: #ffffff;
   background-color: #5771d9;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  width: 90px;
+  cursor: pointer;
+}
+
+.contenedor .tasks .editButton:hover {
+  background-color: #374992;
 }
 
 .contenedor .tasks .deleteButton {
-  color: #040205;
-  font-family: "Noto Sans";
-  font-weight: bold;
+  color: #ffffff;
   background-color: #d92114;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  width: 90px;
+  cursor: pointer;
 }
- 
+
+.contenedor .tasks .deleteButton:hover {
+  background-color: #94150c;
+}
+
+.contenedor .tasks .saveButton {
+  color: #ffffff;
+  background-color: #ebde26;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  width: 90px;
+  cursor: pointer;
+}
+
+.contenedor .tasks .saveButton:hover {
+  background-color: #bab01e;
+}
+
+.tasks .listado .items {
+  border: 1px solid gray;
+}
+.contenedor .tasks .inputSave {
+  border-radius: 5px;
+  width: 90%;
+  padding: 12px 0px 12px 0px;
+  border-color: purple;
+}
+
+.contenedor .tasks .textoTarea {
+  text-transform: uppercase;
+}
+
+#cabecera > th {
+  text-align: left;
+}
+
+#datepicker {
+  border-radius: 5px;
+  width: 100%;
+  padding: 12px 0px 12px 0px;
+  border-color: purple;
+}
